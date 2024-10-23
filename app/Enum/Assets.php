@@ -8,4 +8,6 @@ enum Assets: string
     
     case PROVIDER_IMAGE = 'provider/profile/';
 
+    case SERVICE_IMAGE = 'service/images';
+
 }

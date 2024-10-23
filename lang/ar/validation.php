@@ -205,6 +205,10 @@ return [
         'phone' => 'رقم الهاتف',
         'code' => 'كود التحقق',
         'old_password' => 'الرقم السرى',
+        'category_id' => 'الفئه',
+        'sub_category_id' => 'الفئه الفرعيه',
+        'price' => 'السعر',
+        'description' => 'الوصف',
     ],
 
     'item_not_found'

@@ -66,7 +66,7 @@ Route::group([
     'middleware' => ['auth:provider'], 
     'as' => 'provider.'
 ], function () {
-    Route::get('/all', [ServiceController::class, 'index']);
+    Route::post('/add_service', [ServiceController::class, 'store']);
 });
 
 Route::group([

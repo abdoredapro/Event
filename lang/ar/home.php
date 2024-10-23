@@ -15,6 +15,8 @@ return [
     'wallet hass sufficient money' => 'المحفظه لديها نقود كافيه',
     
     'wallet not have sufficient money' => 'المحفظه ليس لديها نقود كافيه',
+
+    'Service has been added' => 'تم اضافه الخدمه بنجاح',
     
 
 
