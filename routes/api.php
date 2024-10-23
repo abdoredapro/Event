@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Category\CategoryController;
+use App\Http\Controllers\Service\ServiceController;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\User\Auth\ActiveAccountController;
 use App\Http\Controllers\User\Auth\ForgotPasswordController;
@@ -51,6 +52,17 @@ Route::group([
     Route::get('all', [CategoryController::class, 'index']);
 
     Route::get('/{category}/sub_category', [CategoryController::class, 'sub_category']);
+    
+});
+
+
+Route::group([
+    'prefix' => 'provider/service',
+    'middleware' => ['auth:user,provider'],
+    'as' => 'provider.'
+], function () {
+
+    Route::get('/all', [ServiceController::class, 'index']);
     
 });
 

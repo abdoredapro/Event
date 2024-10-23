@@ -209,6 +209,7 @@ return [
         'sub_category_id' => 'الفئه الفرعيه',
         'price' => 'السعر',
         'description' => 'الوصف',
+        'images' => 'الصور',
     ],
 
     'item_not_found'

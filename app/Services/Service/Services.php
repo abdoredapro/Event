@@ -9,8 +9,7 @@ use App\Models\Provider;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
-class Service {
-
+class Services {
 
     /**
      * Add Service
@@ -25,11 +24,34 @@ class Service {
 
         $imageName = ImageHelper::uploadImage($image, Assets::SERVICE_IMAGE->value);
 
-        $provider->services()->create(array_merge($request->all(), [
+        $service = $provider->services()->create(array_merge($request->except('images'), [
             'image' => $imageName
         ]));
 
+        $this->handleImages($service, $request->images);
+    
         return ResponseHelper::success(__('home.Service has been added'));
 
     }
+
+    /**
+     * Handle uploading multi images.
+     * 
+     * @param Service $service
+     * @param <array, string> $images
+     */
+    private function handleImages($service, array $images): void
+    {
+        $images = collect($images);
+
+        $data = $images->map(function ($image) {
+            $name = ImageHelper::uploadImage($image, Assets::SERVICE_IMAGES->value);
+            return ['name' => $name];
+        });
+
+        $service->images()->createMany($data);
+
+    }
+
+
 }

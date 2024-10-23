@@ -17,8 +17,6 @@ Route::get('/provider', function (Request $request) {
 })->middleware('auth:provider');
 
 
-
-
 /**
  * Authentication for Provider.
  */
@@ -76,5 +74,6 @@ Route::group([
 ], function () {
     Route::post('/', ContactUsController::class);
 });
+
 
 

@@ -32,6 +32,8 @@ class StoreServiceRequest extends BaseRequest
             'image' => ['required', 'image', 'mimes:png,jpg,jpeg'],
             'price' => ['required', 'numeric'],
             'description' => ['required', 'string'], 
+            'images' => ['required', 'array'],
+            'images.*' => ['image', 'mimes:jpeg,png,jpg,gif,svg'],
         ];
     }
 }
